@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="messageServiceA" class="com.liangwei.learnspring.MessageServiceImplA"/>
+
+    <bean id="messageServiceB"  class="com.liangwei.learnspring.MessageServiceImplB"/>
+
+    <bean id="messageServiceC" class ="com.liangwei.learnspring.MessageServiceImplC"/>
+
+    <bean id="messageServiceD" class="com.liangwei.learnspring.MessageServiceImplD"/>
+
+    <!-- 使用Setter方法进行属性设置 -->
+    <bean id="messagePrinterA" class="com.liangwei.learnspring.MessagePrinterA">
+        <property name="messageService" ref="messageServiceA"/>
+    </bean>
+
+    <!-- 使用构造器方法进行依赖关系设置 -->
+    <bean id="messagePrinterB" name="messageNameB" class="com.liangwei.learnspring.MessagePrinterB">
+        <constructor-arg ref="messageServiceB"/>
+    </bean>
+
+    <!-- 使用静态工厂方法进行依赖注入 -->
+    <bean id="messagePrinterC" class="com.liangwei.learnspring.MessagePrinterC" factory-method="getMessagePrint">
+        <constructor-arg ref="messageServiceC"/>
+    </bean>
+
+    <bean id="messageFactory" class="com.liangwei.learnspring.MessagePrinterFactory"/>
+
+    <bean id="messagePrinterD" factory-bean="messageFactory" factory-method="createMessagePrinterDInstance">
+        <constructor-arg ref="messageServiceD"/>
+    </bean>
+
+</beans>

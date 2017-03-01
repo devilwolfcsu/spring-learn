@@ -18,16 +18,25 @@ public class Application {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
 
-        /** 使用setter方法进行完成依赖关系 */
+        /* 使用构造器完成实例化 setter方法进行完成依赖关系 */
         MessagePrinterA messagePrinterA = applicationContext.getBean("messagePrinterA",MessagePrinterA.class);
         messagePrinterA.printMessage();
 
+        /* 使用构造器完成实例化和依赖关系构造  */
         MessagePrinterB messagePrinterB = applicationContext.getBean("messagePrinterB",MessagePrinterB.class);
         messagePrinterB.printMessage();
 
+        MessagePrinterB messagePrinterBB = applicationContext.getBean("messageNameBB",MessagePrinterB.class);
+        messagePrinterBB.printMessage();
+
+        MessagePrinterB messageNameB = applicationContext.getBean("messageNameB",MessagePrinterB.class);
+        messageNameB.printMessage();
+
+        /* 使用静态工厂方法完成类实例化和依赖关系注入 */
         MessagePrinterC messagePrinterC = applicationContext.getBean("messagePrinterC",MessagePrinterC.class);
         messagePrinterC.printMessage();
 
+        /* 使用实例化工厂方法完成类构建和依赖关系注入 */
         MessagePrinterD messagePrinterD = applicationContext.getBean("messagePrinterD",MessagePrinterD.class);
         messagePrinterD.printMessage();
     }

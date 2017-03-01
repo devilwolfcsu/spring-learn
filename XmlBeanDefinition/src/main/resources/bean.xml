@@ -18,7 +18,7 @@
     </bean>
 
     <!-- 使用构造器方法进行依赖关系设置 -->
-    <bean id="messagePrinterB" name="messageNameB" class="com.liangwei.learnspring.MessagePrinterB">
+    <bean id="messagePrinterB" name="messageNameB messageNameBB" class="com.liangwei.learnspring.MessagePrinterB">
         <constructor-arg ref="messageServiceB"/>
     </bean>
 
@@ -27,6 +27,7 @@
         <constructor-arg ref="messageServiceC"/>
     </bean>
 
+    <!-- 使用实例化工厂方法进行实例化 -->
     <bean id="messageFactory" class="com.liangwei.learnspring.MessagePrinterFactory"/>
 
     <bean id="messagePrinterD" factory-bean="messageFactory" factory-method="createMessagePrinterDInstance">

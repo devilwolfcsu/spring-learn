@@ -7,6 +7,6 @@ public class MessageServiceImplA  implements  MessageService{
 
     public String getMessage() {
 
-        return "MessageServiceImplA: Hello ,I'm MessageService B.";
+        return "MessageServiceImplA: Hello ,I'm MessageService A.";
     }
 }

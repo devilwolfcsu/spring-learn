@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="address" class="com.liangwei.learnspring.Address"/>
+
+    <!-- 构造器注入  -->
+    <bean id="example" class="com.liangwei.learnspring.ConstructorDIExample">
+        <constructor-arg type="String" value="Json"/>
+        <constructor-arg index="1" value="20"/>
+        <constructor-arg name="address" ref="address"/>
+    </bean>
+
+    <!--  Setter方法注入 -->
+    <bean id="setterExample" class="com.liangwei.learnspring.SetterDIExample">
+        <property name="age" value="20"/>
+        <property name="name" value="Json"/>
+        <property name="address" ref = "address"/>
+    </bean>
+
+    <!-- 内置类型注入 -->
+    <bean id="buildInTypeExample" class="com.liangwei.learnspring.BuildInTypeExample">
+        <property name="age" value="20"/>
+        <property name="weight" value="50.12"/>
+        <property name="name" value="snow"/>
+        <property name="married" value="false"/>
+    </bean>
+
+    <!-- 内部类注入 -->
+    <bean id="innerClassExample" class="com.liangwei.learnspring.InnerClassExample">
+        <property name="person">
+            <bean class="com.liangwei.learnspring.Person">
+                <property name="age" value="21"/>
+                <property name="name" value="Json"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 容器类注入 -->
+    <bean id="collectionDIExample" class="com.liangwei.learnspring.CollectionDIExample">
+        <property name="names">
+            <list>
+                <value>Json</value>
+                <value>Snow</value>
+                <value>Joe</value>
+            </list>
+        </property>
+        <property name="scores">
+            <map>
+                <entry key="Json" value="87"/>
+                <entry key="Snow" value="90"/>
+                <entry key="Joe" value="89"/>
+            </map>
+        </property>
+        <property name="className">
+            <set>
+                <value>Class One</value>
+                <value>Class Two</value>
+                <value>Class Three</value>
+            </set>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="baidu">www.baidu.com</prop>
+                <prop key="google">www.google.com</prop>
+                <prop key="bing">cn.bing.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 容器合并注入 -->
+    <bean id="parentCollection" class="com.liangwei.learnspring.CollectionMergeExample">
+        <property name="properties">
+            <props>
+                <prop key="baidu">www.baidu.com</prop>
+                <prop key="google">www.google.com</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="childCollection" parent="parentCollection">
+        <property name="properties">
+            <props merge="true">
+                <prop key="google">g.cn</prop>
+                <prop key="bing">cn.bing.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 空的注入 -->
+    <bean id="nullExample" class="com.liangwei.learnspring.NullExample">
+        <property name="nullString">
+            <null/>
+        </property>
+        <property name="emptyString" value=""/>
+    </bean>
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+    <!-- 定义prototype bean -->
+    <bean id="prototypeBean" class="com.liangwei.learnspring.PrototypeBean" scope="prototype"/>
+
+    <!-- 定义singleton bean-->
+    <bean id="singletonBean" class="com.liangwei.learnspring.SingletonBean" scope="singleton"/>
+
+    <!-- 依赖 prototype bean 属性注入-->
+    <bean id="prototypeExample1" class="com.liangwei.learnspring.UsePrototypeBeanExample1">
+        <property name="prototypeBean" ref="prototypeBean"/>
+    </bean>
+
+    <bean id="prototypeExample2" class="com.liangwei.learnspring.UsePrototypeBeanExample2">
+        <property name="prototypeBean" ref="prototypeBean"/>
+    </bean>
+
+    <bean id="prototypeExample3" class="com.liangwei.learnspring.UsePrototypeBeanExample3">
+        <property name="prototypeBean" ref="prototypeBean"/>
+    </bean>
+
+    <!--依赖singleton bean 属性注入-->
+    <bean id="singletonExample1" class="com.liangwei.learnspring.UseSingletonBeanExample1">
+        <property name="singletonBean" ref="singletonBean"/>
+    </bean>
+
+    <bean id="singletonExample2" class="com.liangwei.learnspring.UseSingletonBeanExample2">
+        <property name="singletonBean" ref="singletonBean"/>
+    </bean>
+
+    <bean id="singletonExample3" class="com.liangwei.learnspring.UseSingletonBeanExample3">
+        <property name="singletonBean" ref="singletonBean"/>
+    </bean>
+</beans>

@@ -9,8 +9,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/"/>
         <property name="username" value="root"/>
-        <property name="password" value="lw3405226"/>
+        <property name="password" value="root"/>
     </bean>
 
 </beans>
-

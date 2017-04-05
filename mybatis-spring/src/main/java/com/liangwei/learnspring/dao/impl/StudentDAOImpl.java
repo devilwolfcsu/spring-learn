@@ -20,6 +20,18 @@ public class StudentDAOImpl implements StudentDAO{
         return  sqlSession.selectOne("getStudentNums");
     }
 
+    public void insertStudent(Student student) {
+        sqlSession.insert("insertStudent",student);
+    }
+
+    public void deleteStudent(int studentId) {
+        sqlSession.delete("deleteStudent",studentId);
+    }
+
+    public void updateStudent(Student student) {
+        sqlSession.update("updateStudent",student);
+    }
+
     public void setSqlSession(SqlSession sqlSession) {
         this.sqlSession = sqlSession;
     }

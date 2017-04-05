@@ -10,4 +10,10 @@ public interface StudentMapper {
     Student getStudentById(int studentId);
 
     int getStudentNums();
+
+    void insertStudent(Student student);
+
+    void deleteStudent(int studentId);
+
+    void updateStudent(Student student);
 }

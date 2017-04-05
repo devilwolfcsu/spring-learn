@@ -16,4 +16,18 @@ public class StudentDAOSupportImpl  extends SqlSessionDaoSupport implements Stud
     public int getStudentNums() {
         return  getSqlSession().selectOne("getStudentNums");
     }
+
+    public void insertStudent(Student student) {
+
+        getSqlSession().insert("insertStudent",student);
+    }
+
+    public void deleteStudent(int studentId) {
+
+        getSqlSession().delete("deleteStudent",studentId);
+    }
+
+    public void updateStudent(Student student) {
+        getSqlSession().update("updateStudent",student);
+    }
 }

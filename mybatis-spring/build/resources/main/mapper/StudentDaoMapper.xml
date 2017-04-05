@@ -19,4 +19,22 @@
     <select id="getStudentById" resultMap="student">
         select * from student where id=#{studentId}
     </select>
+
+    <insert id="insertStudent" parameterType="com.liangwei.learnspring.domain.Student">
+        insert student
+            (id,name,gender,age)
+        values(
+             #{id},
+             #{name},
+             #{gender},
+             #{age})
+    </insert>
+
+    <delete id="deleteStudent" parameterType="int">
+        delete from student where id = #{studentId}
+    </delete>
+    
+    <update id="updateStudent" parameterType="com.liangwei.learnspring.domain.Student">
+        update student set gender = #{gender} where id = #{id}
+    </update>
 </mapper>

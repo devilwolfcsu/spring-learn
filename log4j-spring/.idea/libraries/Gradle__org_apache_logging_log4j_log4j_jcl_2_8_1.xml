@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.logging.log4j:log4j-jcl:2.8.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-jcl/2.8.1/2c994ec59db75d758d9d24e53e83380b7c67d0d/log4j-jcl-2.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-jcl/2.8.1/7085b8ee44c1be9809beba29383683b5b2ddbac3/log4j-jcl-2.8.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

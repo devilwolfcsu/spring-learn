@@ -1,0 +1,23 @@
+group 'com.liangwei.learning'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.6.RELEASE'
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '21.0'
+
+}
